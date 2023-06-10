@@ -8,7 +8,6 @@ export default function Homepage() {
     <div className="container p-8">
       <NavigationBar />
       <SearchComponent />
-
       <CardComponent />
     </div>
   );

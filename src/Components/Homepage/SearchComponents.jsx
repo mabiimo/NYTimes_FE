@@ -27,7 +27,7 @@ export default function SearchComponent() {
 
   return (
     <div className="w-auto items-center justify-center mt-5 px-14">
-      <Input label="Cari Kata Kunci" onChange={({ target }) => search(target.value)} />
+      <Input label="Search News You Interest" onChange={({ target }) => search(target.value)} />
       <div className="flex flex-wrap justify-center gap-5 mt-5">
         {searchResults.map((article, i) => (
           <div key={i} onClick={() => navigateToDetail(article)}>

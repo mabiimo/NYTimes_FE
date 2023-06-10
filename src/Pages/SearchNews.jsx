@@ -1,15 +1,12 @@
 import React from "react";
-import NavigationBar from "../Components/NavigationBar";
 import SearchComponent from "../Components/Homepage/SearchComponents";
-import CardComponent from "../Components/Homepage/Card";
+import NavigationBar from "../Components/NavigationBar";
 
-export default function Homepage() {
+export default function SearchNews() {
   return (
     <div className="container p-8">
       <NavigationBar />
       <SearchComponent />
-
-      <CardComponent />
     </div>
   );
 }

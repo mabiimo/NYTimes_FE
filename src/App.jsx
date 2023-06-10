@@ -3,6 +3,7 @@ import DetailNews from "./Pages/DetailNews";
 import Homepage from "./Pages/Homepage";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SearchNews from "./Pages/SearchNews";
 
 function App() {
   return (
@@ -10,8 +11,8 @@ function App() {
       <Routes>
         <Route index exact path="/" Component={Homepage} />
         <Route path="/books" Component={BooksReviews} />
-        {/* <Route path="/detailNews/:key" render={({ match }) => <DetailNews articles={articles} key={match.params.key} />} /> */}
-        <Route path="/detailNews" Component={DetailNews} />
+        <Route path="/searchNews" Component={SearchNews} />
+        <Route path="/detailNews" element={<DetailNews />} />
       </Routes>
     </Router>
   );

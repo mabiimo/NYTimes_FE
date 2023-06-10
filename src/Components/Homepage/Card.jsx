@@ -1,10 +1,16 @@
 import { Card, CardBody, Typography } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+
 import { Articles } from "../../Helper/Fetch/api";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CardComponent() {
+  const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
+
+  const navigateToDetail = (article) => {
+    navigate("/detailNews", { state: { article } });
+  };
 
   useEffect(() => {
     Articles().then((data) => {
@@ -17,8 +23,8 @@ export default function CardComponent() {
       {articles.length > 0 ? (
         <div className="flex flex-wrap justify-center gap-5 mt-5">
           {articles.map((article, i) => (
-            <Link to={`/detailNews`} key={i} target="_blank">
-              <Card className="mt-6 w-96">
+            <div key={i} onClick={() => navigateToDetail(article)}>
+              <Card className="mt-1 w-96">
                 <CardBody>
                   <Typography variant="h5" color="blue-gray" className="mb-2">
                     {article.title}
@@ -34,7 +40,7 @@ export default function CardComponent() {
                   <Typography>{article.abstract}</Typography>
                 </CardBody>
               </Card>
-            </Link>
+            </div>
           ))}
         </div>
       ) : (

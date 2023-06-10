@@ -23,8 +23,8 @@ export default function NavigationBar() {
           </Link>
         </Typography>
         <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">
-          <Link to="#" className="flex items-center">
-            Kosong
+          <Link to="/searchNews" className="flex items-center">
+            Search News
           </Link>
         </Typography>
         <Typography as="li" variant="small" color="blue-gray" className="p-1 font-normal">

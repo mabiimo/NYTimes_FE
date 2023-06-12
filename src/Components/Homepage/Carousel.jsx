@@ -21,7 +21,7 @@ export default function Example() {
   }, []);
 
   return (
-    <Carousel className="w-full sm:w-[600px] md:w-[800px] mx-auto rounded-xl mb-10" onInvalid={false}>
+    <Carousel className="w-full sm:w-[600px] md:w-[800px] mx-auto rounded-xl mb-10">
       {articles.map((article, i) => (
         <Link key={i} to="/detailNews" state={{ article }} className="cursor-pointer" onClick={() => navigateToDetail()}>
           <div key={i} className="relative">

@@ -20,6 +20,6 @@ export const fetchArticles = async () => {
     return response.data.results;
   } catch (error) {
     console.log("Error fetching articles:", error);
-    return []; // Mengembalikan array kosong jika terjadi kesalahan saat mengambil data dari API
+    return [];
   }
 };

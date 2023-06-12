@@ -1,12 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function ContextNews() {
   const location = useLocation();
   const { article } = location.state;
-
-  const openArticleInNewTab = (url) => {
-    window.open(url, "_blank");
-  };
 
   return (
     <div className="card justify-center gap-10 items-center flex-wrap px-12">

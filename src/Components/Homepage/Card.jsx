@@ -1,7 +1,8 @@
 import { Card, CardBody, Typography } from "@material-tailwind/react";
-import { Articles } from "../../Helper/Fetch/api";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Articles } from "../../Helper/Fetch/api";
+import LoadingCard from "../Homepage/LoadingCard.jsx";
 
 export default function CardComponent() {
   const navigate = useNavigate();
@@ -29,15 +30,18 @@ export default function CardComponent() {
     <div>
       <div>
         {articles.length > 0 ? (
-          <div className="flex flex-wrap justify-center gap-5 mt-5">
+          <div className="flex flex-wrap justify-center gap-5">
             {displayedArticles.map((article, i) => (
-              <div key={i} onClick={() => navigateToDetail(article)}>
+              <Link key={i} to="/detailNews" state={{ article }} className="cursor-pointer" onClick={() => navigateToDetail()}>
                 <Card className="mt-1 w-96">
                   <CardBody>
                     <Typography variant="h5" color="blue-gray" className="mb-2">
                       {article.title}
                     </Typography>
-                    <p className="mb-2 text-[12px]">{article.byline}</p>
+                    <div className="imgContainer flex items-center justify-center">
+                      {article.multimedia && article.multimedia.length > 1 && <img className="imgContent mt-5 rounded-lg w-[700px]" src={article.multimedia[1].url} alt="Article" />}
+                    </div>
+                    <p className="mb-2 text-[12px] mt-2">{article.byline}</p>
                     <p className="mb-2 text-[12px]">
                       {new Date(article.published_date).toLocaleDateString("en-US", {
                         year: "numeric",
@@ -45,14 +49,16 @@ export default function CardComponent() {
                         day: "numeric",
                       })}
                     </p>
-                    <Typography>{article.abstract}</Typography>
+                    <Typography>{article.abstract} </Typography>
                   </CardBody>
                 </Card>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (
-          <div>Loading...</div>
+          <div>
+            <LoadingCard />
+          </div>
         )}
       </div>
       <div className="container text-center justify-center">

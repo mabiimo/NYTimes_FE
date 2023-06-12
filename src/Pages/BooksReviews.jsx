@@ -10,7 +10,7 @@ export default function BooksReviews() {
   return (
     <div className="container p-8">
       <NavigationBar />
-      {/* <SearchComponent /> */}
+
       <Books />
     </div>
   );

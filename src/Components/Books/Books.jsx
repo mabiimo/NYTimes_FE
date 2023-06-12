@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BooksReview } from "../../Helper/Fetch/api";
+import LoadingBooks from "./LoadingBooks";
 
 export default function Books() {
   const [apiData, setApiData] = useState([]);
@@ -26,7 +27,9 @@ export default function Books() {
           ))}
         </div>
       ) : (
-        <div>Loading...</div>
+        <div>
+          <LoadingBooks />
+        </div>
       )}
     </div>
   );

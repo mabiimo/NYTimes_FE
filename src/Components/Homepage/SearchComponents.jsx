@@ -36,6 +36,9 @@ export default function SearchComponent() {
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   {article.title}
                 </Typography>
+                <div className="imgContainer flex items-center justify-center">
+                  {article.multimedia && article.multimedia.length > 1 && <img className="imgContent mt-5 rounded-lg w-[700px]" src={article.multimedia[1].url} alt="Article" />}
+                </div>
                 <p className="mb-2 text-[12px]">{article.byline}</p>
                 <p className="mb-2 text-[12px]">
                   {new Date(article.published_date).toLocaleDateString("en-US", {
